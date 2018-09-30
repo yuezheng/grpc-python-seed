@@ -1,0 +1,48 @@
+syntax = "proto3";
+import "common.proto";
+package internal;
+
+service InternalServer {
+    rpc Describe (DescribeRequest) returns (ResourceReply) {}
+    rpc Create (CreateRequest) returns (stream ResourceReply) {}
+    rpc Update (stream UpdateRequest) returns (stream ResourceReply) {}
+}
+
+message Resource {
+    string id = 1;
+    string type = 2;
+    map<string, JSONTYPE> info = 3;
+    bool is_error = 6;
+}
+
+
+message ResourceReply {
+    string request_id = 1;
+    repeated Resource resources = 2;
+    bool is_final = 3;
+    bool is_error = 4;
+    string error_code = 5;
+    string error_msg = 6;
+}
+
+
+message DescribeRequest {
+    string request_id = 1;
+    string resource_type = 2;
+    map<string, JSONTYPE> params = 3;
+}
+
+
+message CreateRequest {
+    string request_id = 1;
+    string resource_type = 2;
+    map<string, JSONTYPE> params = 3;
+}
+
+
+message UpdateRequest {
+    string request_id = 1;
+    string resource_type = 2;
+    string resource_id = 3;
+    bool cancel = 4;
+}
