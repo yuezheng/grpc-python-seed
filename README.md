@@ -31,6 +31,7 @@ python 3.6+
 cd grpcdemo
 virtualenv -p python3 venv
 source venv/bin/activate
+python setup.py install
 
 ```
 2. 启动gRPC服务：
@@ -40,8 +41,7 @@ python main.py
 ```
 3. 启动测试用例:
 ```
-cd grpcdemo/tests
-python __main__.py
+python -m unittest tests/unit/api/test_grpc.py
 ```
 
 ### gRPC模式
