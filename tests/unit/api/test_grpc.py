@@ -52,6 +52,7 @@ class TestGrpcAPI(unittest.TestCase):
         ids = [1, 2, 3, 4, 5, 6]
         future = asyncio.ensure_future(self._send_req(ids, q))
         async for res in res_generator:
+            print(res)
             message = self.client.message_to_dict(res)
             print(message)
 

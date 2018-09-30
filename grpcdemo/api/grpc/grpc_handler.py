@@ -216,7 +216,10 @@ class GrpcServer(InternalServerServicer):
                 break
             resources = []
             _resource = Resource(
-                info=convert_to_JSONTYPE_dict({"name": f"test-{r_id}"}),
+                info=convert_to_JSONTYPE_dict({
+                    "name": f"test-{r_id}",
+                    "id": r_id
+                }),
                 id=r_id,
                 type="test",
                 is_error=False
