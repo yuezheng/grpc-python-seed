@@ -30,8 +30,8 @@ python 3.6+
 ```
 cd grpcdemo
 virtualenv -p python3 venv
-source venv/bin/active
-pip install -r requriements.txt
+source venv/bin/activate
+
 ```
 2. 启动gRPC服务：
 ```

@@ -1,0 +1,4 @@
+include requirements.txt
+include VERSION
+recursive-include grpcdemo *
+recursive-include tests *
